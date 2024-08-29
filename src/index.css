@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.center-fixed {
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.bg-image-1 {
+    background-image: url('../public/weather-icons-set-vector.webp');
+    background-position: 0 0;
+    background-size: 300%;
+    /* Ajusta según el tamaño de tu imagen */
+}
+
+.bg-image-2 {
+    background-image: url('../public/weather-icons-set-vector.webp');
+    background-position: 48% 0;
+    background-size: 300%;
+}
+
+.bg-image-3 {
+    background-image: url('../public/weather-icons-set-vector.webp');
+    background-position: 100% 0;
+    background-size: 300%;
+}
+
+.bg-image-4 {
+    background-image: url('/weather-icons-set-vector.webp');
+    background-position: 0 47%;
+    background-size: 300%;
+}
+
+.bg-image-5 {
+    background-image: url('../public/weather-icons-set-vector.webp');
+    background-position: 45% 45%;
+    background-size: 300%;
+}
+
+.bg-image-6 {
+    background-image: url('../public/weather-icons-set-vector.webp');
+    background-position: 100% 45%;
+    background-size: 300%;
+}
+
+.bg-image-7 {
+    background-image: url('../public/weather-icons-set-vector.webp');
+    background-position: 0 100%;
+    background-size: 300%;
+}
+
+.bg-image-8 {
+    background-image: url('../public/weather-icons-set-vector.webp');
+    background-position: 45% 100%;
+    background-size: 300%;
+}
+
+.bg-image-9 {
+    background-image: url('../public/weather-icons-set-vector.webp');
+    background-position: 100% 100%;
+    background-size: 300%;
+}
