@@ -12,7 +12,7 @@ export default function WeatherDaily({ data, imageId }) {
                 <p className="font-semibold text-lg">{getDayOfPresent(fecha)}</p>
                 <p className="font-bold text-xl">Min: {data.temp.min}° - Max: {data.temp.max}°</p>
             </div>
-            <p className="flex flex-1 justify-end items-center text-center">Lluvia:<br></br> {data.pop * 100}%</p>
+            <p className="flex flex-1 justify-end items-center text-center">Lluvia:<br></br> {Math.round(data.pop * 100)}%</p>
         </div>
     )
 }
