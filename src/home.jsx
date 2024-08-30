@@ -53,7 +53,7 @@ export default function Home() {
                             </div>
                             <h3 className='text-4xl font-bold'>{Math.round(JSON.stringify(weatherData.current.temp, null, 2))}°</h3>
                         </div>
-                        <div className='flex flex-col justify-center items-end'>
+                        <div className='flex flex-col justify-center '>
                             <div className={' size-28 sm:size-36 bg-image-' + getIdImage(weatherData.current)}></div>
                             <p className='text-center text-gray-300 text-xl'>{JSON.stringify(weatherData.current.weather[0].description, null, 2)}</p>
                         </div>
