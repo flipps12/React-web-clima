@@ -22,10 +22,10 @@ export default function Home() {
         navigator.geolocation.getCurrentPosition((position) => {
             let lat = position.coords.latitude;
             let long = position.coords.longitude;
-        
+
             setLanlon(lat + "&" + long)
             console.log(latlon)
-          });
+        });
     }
 
     useEffect(() => {
@@ -45,19 +45,26 @@ export default function Home() {
                 setLoading(false);
             })
             .catch(error => {
+                console.log(error)
                 setError(error);
                 setLoading(false);
             });
     }, [latlon]);
 
     if (loading) return (<Loading />);
-    if (error) return <p>Error: {error.message}</p>;
-
-    const date = new Date(JSON.stringify(weatherData.current.dt, null, 2) * 1000);
+    if (error) return (
+        <div className="bg-gray-900 w-screen h-screen flex justify-center items-center">
+            <div className='flex flex-col bg-opacity-40 bg-gray-950 items-center border-red-600 border-4 rounded-2xl shadow-md shadow-red p-4'>
+                <div className='text-white text-2xl'>Error: {error.name}</div>
+                <div className='text-white text-2xl'>Code: {error.code}</div>
+                <div className='text-white text-2xl'>Message:</div>
+                <div className='text-white text-2xl'>{error.message}</div>
+            </div>
+        </div>)
 
     return (
         <div className='sm:flex w-[94vw] h-screen bg-gray-900 text-white mx-[3vw] sm:items-center'>
-          <div className='flex flex-col sm:flex-row sm:justify-between w-[94vw]'>
+            <div className='flex flex-col sm:flex-row sm:justify-between w-[94vw]'>
                 <div className=''>
                     <div className='flex h-44 sm:h-36 mx-4 my-8'>
                         <div className='flex flex-col flex-1 justify-between h-full'>
