@@ -21,6 +21,7 @@ export default function Nav() {
                 <Link to='/'><i className="fa-solid fa-house text-gray-300 text-4xl"></i></Link >
                 <Link to='#'><i className="fa-solid fa-x text-gray-300 text-4xl"></i></Link >
                 <Link to='#'><i className="fa-solid fa-x text-gray-300 text-4xl"></i></Link >
+                <Link to='https://github.com/flipps12/React-web-clima'><i className="fa-brands fa-github text-gray-300 text-4xl"></i></Link >
             </nav>
         </Fragment>
     )

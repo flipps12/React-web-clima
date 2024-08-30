@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { getDayOfPresent } from "../hooks/useDate";
+import { getDayOfPresent } from "../../hooks/useDate";
 
 export default function WeatherDaily({ data, imageId }) {
 

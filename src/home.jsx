@@ -2,9 +2,9 @@ import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
 
 import Loading from './components/loading';
-import WeatherHourly from './components/weatherHourly';
-import WeatherDetails from './components/weatherDetails';
-import WeatherDaily from './components/weatherDaily';
+import WeatherHourly from './components/home/weatherHourly';
+import WeatherDetails from './components/home/weatherDetails';
+import WeatherDaily from './components/home/weatherDaily';
 
 const getIdImage = (data) => {
     console.log(data.weather[0].main)
@@ -15,11 +15,25 @@ const getIdImage = (data) => {
 
 export default function Home() {
     const [weatherData, setWeatherData] = useState(null);
+    const [latlon, setLanlon] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const geoLoc = () => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            let lat = position.coords.latitude;
+            let long = position.coords.longitude;
+        
+            setLanlon(lat + "&" + long)
+            console.log(latlon)
+          });
+    }
+
     useEffect(() => {
-        axios.get("https://propxy-clima-app.vercel.app/api/v1/weather/-34.6571198&-58.7326569&&es")
+        if (latlon == null) {
+            var url = "https://propxy-clima-app.vercel.app/api/v1/weather/-50&-50&&es"; //-34.6571198&-58.7326569
+        } else var url = `https://propxy-clima-app.vercel.app/api/v1/weather/${latlon}&&es`;
+        axios.get(url)
             .then(response => {
                 setWeatherData(response.data);
                 setLoading(false);
@@ -28,7 +42,7 @@ export default function Home() {
                 setError(error);
                 setLoading(false);
             });
-    }, []);
+    }, [latlon]);
 
     if (loading) return (<Loading />);
     if (error) return <p>Error: {error.message}</p>;
@@ -48,13 +62,13 @@ export default function Home() {
                     <div className='flex h-32 mx-4 my-8'>
                         <div className='flex flex-col flex-1 justify-between h-full'>
                             <div>
-                                <h3 className='text-3xl sm:text-4xl'>Itu. EJ</h3>
+                                <h3 className='flex gap-2 text-3xl sm:text-4xl'>Tu ciudad <div onClick={geoLoc}><i className="fa-solid fa-rotate-left"></i></div></h3>
                                 <p className='text-gray-500 text-lg'>Precipitaciones: {JSON.stringify(weatherData.hourly[0].pop, null, 2) * 100}%</p>
                             </div>
                             <h3 className='text-4xl font-bold'>{Math.round(JSON.stringify(weatherData.current.temp, null, 2))}°</h3>
                         </div>
                         <div className='flex flex-col justify-center '>
-                            <div className={' size-28 sm:size-36 bg-image-' + getIdImage(weatherData.current)}></div>
+                            <div className={' size-28 sm:size-32 bg-image-' + getIdImage(weatherData.current)}></div>
                             <p className='text-center text-gray-300 text-xl'>{JSON.stringify(weatherData.current.weather[0].description, null, 2)}</p>
                         </div>
                     </div>
