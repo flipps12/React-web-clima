@@ -1,7 +1,7 @@
 # Simple aplicación de clima.
 
->#### Utilizando:
+#### Utilizando:
 >
-> - React + vite
 > - Javascript
+> - React + vite
 > - El servico [OpenWeatherMap](https://openweathermap.org/)
