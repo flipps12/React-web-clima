@@ -1,6 +1,6 @@
 # Simple aplicación de clima.
 
-#### Utilizando:
+> ## Utilizando:
 >
 > - Javascript
 > - React + vite
