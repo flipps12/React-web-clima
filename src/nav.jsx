@@ -19,8 +19,6 @@ export default function Nav() {
             <nav id="nav" className="z-30 w-20 h-screen rounded-md fixed bg-gray-900 flex flex-col justify-center items-center gap-14 -ml-24 transition-all duration-150 ease-out">
                 <div onClick={nav}><i className="fa-solid fa-arrow-left text-gray-300 text-4xl"></i></div>
                 <Link to='/'><i className="fa-solid fa-house text-gray-300 text-4xl"></i></Link >
-                <Link to='#'><i className="fa-solid fa-x text-gray-300 text-4xl"></i></Link >
-                <Link to='#'><i className="fa-solid fa-x text-gray-300 text-4xl"></i></Link >
                 <Link to='https://github.com/flipps12/React-web-clima'><i className="fa-brands fa-github text-gray-300 text-4xl"></i></Link >
             </nav>
         </Fragment>
